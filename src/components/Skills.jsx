@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Cloud, Brain, Database } from 'lucide-react';
+import SkillSphere3D from './SkillSphere3D';
 import {
   PythonLogo,
   JavaLogo,
@@ -160,6 +161,9 @@ export default function Skills() {
         </h2>
         <div className="w-20 h-1 bg-gradient-to-r from-cyber-cyan to-cyber-violet mt-4 rounded-full"></div>
       </motion.div>
+
+      {/* 3D Interactive Skill Tag Sphere */}
+      <SkillSphere3D />
 
       {/* Grid of Categories */}
       <div className="space-y-16">

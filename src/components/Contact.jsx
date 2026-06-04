@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, Send, CheckCircle2, AlertTriangle } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import confetti from 'canvas-confetti';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
@@ -13,7 +14,7 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg('');
 
@@ -33,9 +34,27 @@ export default function Contact() {
 
     setStatus('sending');
 
-    // Simulate Server Request
-    setTimeout(() => {
-      setStatus('success');
+    // EmailJS integration — uses env variables for keys
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    try {
+      if (!serviceId || !templateId || !publicKey) {
+        // Fallback: open mailto if EmailJS isn't configured
+        const mailtoLink = `mailto:msravikiran11@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Contact')}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
+        window.open(mailtoLink, '_blank');
+        setStatus('success');
+      } else {
+        await emailjs.send(serviceId, templateId, {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }, publicKey);
+        setStatus('success');
+      }
+
       setFormData({ name: '', email: '', subject: '', message: '' });
 
       // Shoot Confetti
@@ -45,7 +64,10 @@ export default function Contact() {
         origin: { y: 0.6 },
         colors: ['#00E5FF', '#8B5CF6', '#00FF88']
       });
-    }, 1500);
+    } catch (err) {
+      setStatus('error');
+      setErrorMsg('Failed to send message. Please try again or email directly.');
+    }
   };
 
   return (
@@ -120,7 +142,7 @@ export default function Contact() {
                   <Github size={20} />
                 </a>
                 <a
-                  href="https://linkedin.com/in/ravikiran-m-s"
+                  href="https://linkedin.com/in/ravikiran-m-s-378715299"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-cyber-violet hover:border-cyber-violet/50 hover:bg-cyber-violet/10 transition-all duration-300"

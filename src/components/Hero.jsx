@@ -53,7 +53,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display font-black text-3xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tight text-white mb-6 whitespace-nowrap"
+            className="font-display font-black text-3xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tight text-white mb-6"
           >
             RAVIKIRAN <span className="text-gradient-cyan-violet">M S</span>
           </motion.h1>
@@ -98,7 +98,8 @@ export default function Hero() {
             </a>
 
             <a
-              href="#"
+              href="/Ravikiran_MS_Resume.pdf"
+              download
               className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-medium text-white border border-cyber-violet/50 bg-cyber-violet/10 hover:bg-cyber-violet/25 hover:border-cyber-violet transition-all duration-300 flex items-center justify-center gap-2"
             >
               <Download size={18} />
@@ -131,7 +132,7 @@ export default function Hero() {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com/in/ravikiran-m-s"
+              href="https://linkedin.com/in/ravikiran-m-s-378715299"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-cyber-violet hover:border-cyber-violet/50 hover:bg-cyber-violet/5 transition-all duration-300"

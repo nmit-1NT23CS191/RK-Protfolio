@@ -42,7 +42,7 @@ export default function About() {
               </div>
               <div className="text-center sm:text-left">
                 <h3 className="font-display font-black text-2xl text-white tracking-wide">Ravikiran M S</h3>
-                <p className="text-cyber-cyan text-xs font-semibold uppercase tracking-wider mt-1">AI & CLOUD ENTHUSIAST,software engineer</p>
+                <p className="text-cyber-cyan text-xs font-semibold uppercase tracking-wider mt-1">AI & Cloud Enthusiast · Software Engineer</p>
                 <p className="text-gray-400 text-xs mt-1">Batch of 2027 • CSE Specialization</p>
               </div>
             </div>
