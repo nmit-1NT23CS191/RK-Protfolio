@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0B1120;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  /* Custom glow scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #050811;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00E5FF, #8B5CF6);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00FF88, #00E5FF);
+  }
+}
+
+@layer utilities {
+  /* Frosted glass styles */
+  .glass-card {
+    background: rgba(11, 17, 32, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-card-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card-hover:hover {
+    background: rgba(11, 17, 32, 0.85);
+    border-color: rgba(0, 229, 255, 0.3);
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.25), inset 0 0 8px rgba(0, 229, 255, 0.1);
+  }
+
+  .glass-navbar {
+    background: rgba(5, 8, 17, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Text gradients */
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #00E5FF 0%, #8B5CF6 50%, #00FF88 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-cyan-violet {
+    background: linear-gradient(135deg, #00E5FF 0%, #8B5CF6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-violet-green {
+    background: linear-gradient(135deg, #8B5CF6 0%, #00FF88 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Neon border glows */
+  .neon-glow-cyan {
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+  }
+
+  .neon-glow-violet {
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+  }
+
+  .neon-glow-green {
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+  }
+
+  /* Hide default scrollbar but keep functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom background styles */
+.cyber-bg-dots {
+  background-image: radial-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.text-stroke-cyan {
+  -webkit-text-stroke: 1px rgba(0, 229, 255, 0.4);
+  color: transparent;
+}
