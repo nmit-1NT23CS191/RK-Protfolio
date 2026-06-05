@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { ChevronDown, ArrowRight, Download } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { useTypewriter } from '../hooks/useTypewriter';
-import Profile3D from './Profile3D';
 
 export default function Hero() {
   const words = [
@@ -143,15 +142,25 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right Column: 3D profile picture card */}
+        {/* Right Column: Interactive Profile Video */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="lg:col-span-5 flex justify-center items-center w-full"
         >
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-3xl border border-cyber-cyan/20 p-2 bg-cyber-navy/30 backdrop-blur-sm shadow-[0_0_30px_rgba(0,229,255,0.1)] hover:border-cyber-cyan/50 hover:shadow-[0_0_40px_rgba(0,229,255,0.25)] transition-all duration-500 animate-float-medium flex items-center justify-center">
-            <Profile3D />
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-3xl border border-cyber-cyan/20 overflow-hidden bg-cyber-navy/30 backdrop-blur-sm shadow-[0_0_30px_rgba(0,229,255,0.1)] hover:border-cyber-cyan/50 hover:shadow-[0_0_40px_rgba(0,229,255,0.25)] transition-all duration-500 animate-float-medium flex items-center justify-center">
+            {/* Holographic scanner effect overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyber-cyan/10 to-transparent w-full h-full pointer-events-none animate-pulse z-10" />
+            <video
+              src="/profile-video.mp4"
+              className="w-full h-full object-cover rounded-[22px] z-20"
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+            />
           </div>
         </motion.div>
       </div>
