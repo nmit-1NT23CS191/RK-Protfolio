@@ -6,7 +6,7 @@ import { useTypewriter } from '../hooks/useTypewriter';
 
 export default function Hero() {
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const words = [
     "Computer Science Engineering Student",
@@ -187,7 +187,6 @@ export default function Hero() {
               src="/profile-video.mp4"
               className="w-full h-full object-cover select-none cursor-pointer"
               playsInline
-              autoPlay
               muted={isMuted}
               onClick={handleVideoClick}
               onEnded={handleVideoEnded}
