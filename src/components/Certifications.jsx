@@ -3,36 +3,60 @@ import { Award, Briefcase, ExternalLink, Calendar, CheckCircle } from 'lucide-re
 
 const certifications = [
   {
-    title: 'Top 15 Finalist',
-    issuer: 'Vibe-A-Thon Hackathon 2026',
-    date: '2026',
-    type: 'Hackathon Award',
+    title: 'OCI 2025 AI Foundations Associate', /* [cite: 7] */
+    issuer: 'Oracle University', /* [cite: 1] */
+    date: 'Feb 2026', /* [cite: 9] */
+    type: 'Professional Certification',
+    badge: '🤖',
+    color: 'border-cyber-violet text-cyber-violet shadow-cyber-violet/10'
+  },
+  {
+    title: 'VIBE-A-THON 2026 Participant', 
+    issuer: 'NMIT Bengaluru', 
+    date: 'May 2026', 
+    type: 'Hackathon Participation',
     badge: '🏆',
     color: 'border-cyber-cyan text-cyber-cyan shadow-cyber-cyan/10'
   },
   {
-    title: 'Associate Cloud Engineer',
-    issuer: 'Google Cloud Platform (GCP)',
-    date: 'In Progress',
-    type: 'Professional Certification',
-    badge: '☁️',
-    color: 'border-cyber-violet text-cyber-violet shadow-cyber-violet/10'
-  },
-  {
-    title: 'ML Foundation & EDA',
-    issuer: 'Infosys Springboard',
-    date: '2025',
-    type: 'Technical Coursework',
-    badge: '📊',
+    title: 'Machine Learning Foundation', /* [cite: 59] */
+    issuer: 'Infosys Springboard', /* [cite: 61] */
+    date: 'Apr 2026', /* [cite: 60] */
+    type: 'Certification',
+    badge: '🧠',
     color: 'border-cyber-green text-cyber-green shadow-cyber-green/10'
   },
   {
-    title: 'Java Foundation & UNIX Basics',
-    issuer: 'Infosys & Cisco Academy',
-    date: '2024',
-    type: 'Foundational Coursework',
-    badge: '☕',
+    title: 'Citizen Data Science (Python)', /* [cite: 71] */
+    issuer: 'Infosys Springboard', /* [cite: 72] */
+    date: 'Oct 2025', /* [cite: 71] */
+    type: 'Certification',
+    badge: '📊',
+    color: 'border-blue-500 text-blue-400 shadow-blue-500/10'
+  },
+  {
+    title: 'Data Visualisation (Python)', /* [cite: 84] */
+    issuer: 'Infosys Springboard', /* [cite: 86] */
+    date: 'Oct 2025', /* [cite: 85] */
+    type: 'Course Completion',
+    badge: '📈',
+    color: 'border-pink-500 text-pink-400 shadow-pink-500/10'
+  },
+  {
+    title: 'Operating Systems Basics', /* [cite: 24] */
+    issuer: 'Cisco Networking Academy', /* [cite: 20] */
+    date: 'Apr 2025', /* [cite: 26] */
+    type: 'Coursework',
+    badge: '🖥️',
     color: 'border-orange-500 text-orange-400 shadow-orange-500/10'
+  },
+  {
+    title: 'Unix & Linux OS Foundations', /* [cite: 32, 46] */
+    issuer: 'Infosys Springboard', /* [cite: 34, 48] */
+    date: 'Apr 2025', /* [cite: 33, 47] */
+    type: 'Coursework',
+    badge: '🐧',
+    color: 'border-yellow-500 text-yellow-400 shadow-yellow-500/10'
   }
 ];
 
@@ -94,18 +118,18 @@ export default function Certifications() {
         </div>
       </div>
 
-      {/* Tailwind custom animation injected directly inline to guarantee it executes correctly */}
+      {/* Tailwind custom animation adjusted for the new 7-item array length */}
       <style>{`
         @keyframes scroll-track {
           0% {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-320px * 4 - 24px * 4));
+            transform: translateX(calc(-320px * 7 - 24px * 7));
           }
         }
         .animate-scroll-track {
-          animation: scroll-track 25s linear infinite;
+          animation: scroll-track 40s linear infinite;
         }
       `}</style>
     </section>

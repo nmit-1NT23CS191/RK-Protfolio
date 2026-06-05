@@ -6,7 +6,6 @@ import profileImg from '../assets/profile.jpg';
 const focusAreas = [
   { name: 'Software Development Engineering (SDE)', color: 'border-cyber-cyan text-cyber-cyan bg-cyber-cyan/5' },
   { name: 'Cloud Infrastructure & Security', color: 'border-cyber-violet text-cyber-violet bg-cyber-violet/5' },
-  { name: 'Cybersecurity', color: 'border-red-500 text-red-400 bg-red-500/5' },
   { name: 'Artificial Intelligence', color: 'border-cyber-green text-cyber-green bg-cyber-green/5' },
   { name: 'DevOps Pipelines', color: 'border-orange-500 text-orange-400 bg-orange-500/5' },
   { name: 'Data Engineering', color: 'border-yellow-500 text-yellow-400 bg-yellow-500/5' },
@@ -89,12 +88,19 @@ export default function About() {
               </h3>
               <div className="border-l-2 border-cyber-violet/30 pl-4 py-1">
                 <h4 className="text-white font-semibold text-base">B.E. in Computer Science Engineering</h4>
-                <p className="text-cyber-cyan text-sm font-medium mt-1">Nitte Meenakshi Institute of Technology (NMIT)</p>
+                <a
+                  href="https://www.nmit.ac.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyber-cyan text-sm font-medium mt-1 hover:text-cyber-violet hover:underline transition-all duration-300 inline-block"
+                >
+                  Nitte Meenakshi Institute of Technology (NMIT)
+                </a>
                 <p className="text-gray-400 text-xs mt-1">Bengaluru, Karnataka</p>
               </div>
             </div>
             <div className="mt-6 pt-4 border-t border-white/5 text-xs text-gray-500">
-              Focus on Algorithms, Database Systems, Computer Networks, and Cryptography.
+              Core Academic Focus: Data Structures & Algorithms (DSA), Database Management Systems (DBMS), Operating Systems, Computer Networks, and Object-Oriented Programming (OOP).
             </div>
           </div>
 

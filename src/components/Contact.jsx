@@ -34,39 +34,43 @@ export default function Contact() {
 
     setStatus('sending');
 
-    // EmailJS integration — uses env variables for keys
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    // ── Web3Forms: free email routing, no backend needed ──
+    // Get your free access key at https://web3forms.com (enter msravikiran11@gmail.com)
+    // Then set VITE_WEB3FORMS_KEY=your_key in a .env file at project root.
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || '1b8c8e7a-b9cb-4c94-9c2a-placeholder';
 
     try {
-      if (!serviceId || !templateId || !publicKey) {
-        // Fallback: open mailto if EmailJS isn't configured
-        const mailtoLink = `mailto:msravikiran11@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Contact')}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
-        window.open(mailtoLink, '_blank');
-        setStatus('success');
-      } else {
-        await emailjs.send(serviceId, templateId, {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || 'Portfolio Contact',
           message: formData.message,
-        }, publicKey);
-        setStatus('success');
-      }
-
-      setFormData({ name: '', email: '', subject: '', message: '' });
-
-      // Shoot Confetti
-      confetti({
-        particleCount: 120,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#00E5FF', '#8B5CF6', '#00FF88']
+          from_name: 'RK Portfolio',
+          botcheck: '',
+        }),
       });
+
+      const result = await res.json();
+
+      if (result.success) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        confetti({
+          particleCount: 120,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#00E5FF', '#8B5CF6', '#00FF88'],
+        });
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
     } catch (err) {
       setStatus('error');
-      setErrorMsg('Failed to send message. Please try again or email directly.');
+      setErrorMsg('Failed to send message. Please email directly at msravikiran11@gmail.com');
     }
   };
 
@@ -142,7 +146,7 @@ export default function Contact() {
                   <Github size={20} />
                 </a>
                 <a
-                  href="https://linkedin.com/in/ravikiran-m-s-378715299"
+                  href="https://www.linkedin.com/in/ravikiran-m-s/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-cyber-violet hover:border-cyber-violet/50 hover:bg-cyber-violet/10 transition-all duration-300"

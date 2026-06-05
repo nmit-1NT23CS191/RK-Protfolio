@@ -13,7 +13,7 @@ An interactive, high-end, 3D developer portfolio showcasing Software Development
 *   **Anti-Gravity 3D Background**: Interactive WebGL space backdrop rendering floating stars, spheres, and physics particles that react dynamically to cursor movements.
 *   **Infinite Scrolling Carousel**: Continuous horizontal scroll track displaying verified certifications, hackathons, and credentials.
 *   **Interactive Projects Showcase**: Premium glassmorphic cards with subtle highlights, expandable details, custom tag clouds, and link integrations.
-*   **Dynamic Coding Activity Tracker**: Seeded pseudorandom color contribution map visualizing commits and active streak indicators.
+
 *   **Interactive Contact Desk**: Contact form featuring real-time client validation, animation state handlers, and canvas-confetti success triggers.
 
 ---
@@ -41,7 +41,7 @@ my-portfolio/
 │   │   ├── Certifications.jsx # Infinite scroll achievements carousel
 │   │   ├── Contact.jsx        # Validation form with success confetti
 │   │   ├── Footer.jsx         # Bottom layout & scroll-to-top handler
-│   │   ├── GithubStats.jsx    # Contribution grid & CountUp counters
+
 │   │   ├── Hero.jsx           # Floating 3D card layout & typewriter subtitle
 │   │   ├── Icons.jsx          # Custom SVG inline brand icons
 │   │   ├── Navbar.jsx         # Frosted glass responsive navigation bar
