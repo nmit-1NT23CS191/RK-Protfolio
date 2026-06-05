@@ -302,7 +302,7 @@ export default function Projects() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[999] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[999] flex items-center justify-center p-4 md:p-8"
             style={{ background: 'rgba(5,10,24,0.88)', backdropFilter: 'blur(12px)' }}
             onClick={() => setModalProject(null)}
           >
@@ -313,7 +313,7 @@ export default function Projects() {
               exit={{ opacity: 0, scale: 0.94, y: 20 }}
               transition={{ type: 'spring', stiffness: 260, damping: 28 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl flex flex-col"
+              className="relative w-full max-w-2xl md:max-w-3xl lg:max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl flex flex-col scrollbar-hide"
               style={{
                 background: 'linear-gradient(145deg, rgba(11,17,32,0.98) 0%, rgba(18,26,48,0.98) 100%)',
                 border: `1px solid ${modalProject.accentColor}`,
@@ -321,7 +321,7 @@ export default function Projects() {
               }}
             >
               {/* Modal header image */}
-              <div className="relative h-48 overflow-hidden rounded-t-2xl flex-shrink-0">
+              <div className="relative h-48 md:h-64 lg:h-72 overflow-hidden rounded-t-2xl flex-shrink-0">
                 <div
                   className="absolute inset-0 bg-cover bg-center scale-105"
                   style={{ backgroundImage: `url(${modalProject.image})` }}
@@ -330,33 +330,33 @@ export default function Projects() {
                 {/* Close button */}
                 <button
                   onClick={() => setModalProject(null)}
-                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-200"
+                  className="absolute top-4 right-4 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-200"
                 >
                   ✕
                 </button>
-                <div className="absolute bottom-4 left-6 flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center backdrop-blur-sm">
-                    {React.cloneElement(modalProject.icon, { size: 26 })}
+                <div className="absolute bottom-4 md:bottom-6 left-6 md:left-8 flex items-center gap-3 md:gap-4">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center backdrop-blur-sm">
+                    {React.cloneElement(modalProject.icon, { size: isMobile ? 26 : 32 })}
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400 uppercase tracking-widest">Project</p>
-                    <h3 className="font-display font-black text-xl text-white leading-tight">{modalProject.fullTitle}</h3>
+                    <p className="text-xs md:text-sm text-gray-400 uppercase tracking-widest mb-1">Project</p>
+                    <h3 className="font-display font-black text-xl md:text-2xl lg:text-3xl text-white leading-tight">{modalProject.fullTitle}</h3>
                   </div>
                 </div>
               </div>
 
               {/* Modal body */}
-              <div className="p-6 flex flex-col gap-5">
+              <div className="p-6 md:p-8 flex flex-col gap-5 md:gap-7">
                 {/* Description */}
-                <p className="text-gray-300 text-sm leading-relaxed">{modalProject.description}</p>
+                <p className="text-gray-300 text-sm md:text-base leading-relaxed">{modalProject.description}</p>
 
                 {/* All features */}
                 <div>
-                  <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Key Features</p>
-                  <ul className="space-y-2.5">
+                  <p className="text-xs md:text-sm font-bold text-gray-500 uppercase tracking-widest mb-3 md:mb-4">Key Features</p>
+                  <ul className="space-y-2.5 md:space-y-3">
                     {modalProject.features.map((f, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-sm text-gray-200 leading-snug">
-                        <span className="text-cyber-green mt-0.5 flex-shrink-0">✦</span>
+                      <li key={i} className="flex items-start gap-2.5 md:gap-3 text-sm md:text-base text-gray-200 leading-snug">
+                        <span className="text-cyber-green mt-0.5 md:mt-1 flex-shrink-0">✦</span>
                         <span>{f}</span>
                       </li>
                     ))}
@@ -365,23 +365,23 @@ export default function Projects() {
 
                 {/* Tags */}
                 <div>
-                  <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Tech Stack</p>
-                  <div className="flex flex-wrap gap-2">
+                  <p className="text-xs md:text-sm font-bold text-gray-500 uppercase tracking-widest mb-3 md:mb-4">Tech Stack</p>
+                  <div className="flex flex-wrap gap-2 md:gap-3">
                     {modalProject.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-[11px] font-semibold text-gray-200 uppercase tracking-wider">{tag}</span>
+                      <span key={tag} className="px-3 md:px-4 py-1.5 rounded-md bg-white/5 border border-white/10 text-[11px] md:text-xs font-semibold text-gray-200 uppercase tracking-wider">{tag}</span>
                     ))}
                   </div>
                 </div>
 
                 {/* Actions */}
-                <div className="flex gap-3 pt-2 border-t border-white/10">
+                <div className="flex gap-3 pt-4 border-t border-white/10">
                   <a
                     href={modalProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/15 text-sm text-white hover:bg-cyber-cyan/10 hover:border-cyber-cyan/40 hover:text-cyber-cyan transition-all duration-300"
+                    className="flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-full bg-white/5 border border-white/15 text-sm md:text-base text-white hover:bg-cyber-cyan/10 hover:border-cyber-cyan/40 hover:text-cyber-cyan transition-all duration-300"
                   >
-                    <Github size={16} /> View on GitHub
+                    <Github size={isMobile ? 16 : 18} /> View on GitHub
                   </a>
                 </div>
               </div>
