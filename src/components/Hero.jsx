@@ -75,7 +75,7 @@ export default function Hero() {
             className="px-4 py-1.5 rounded-full border border-cyber-cyan/30 bg-cyber-cyan/10 text-cyber-cyan text-xs font-semibold tracking-widest uppercase mb-6 shadow-[inset_0_0_10px_rgba(0,229,255,0.15)] flex items-center gap-2"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-cyber-green animate-pulse"></span>
-            Engineering Student Portfolio
+             Building Intelligent & Secure Software Solutions
           </motion.div>
 
           {/* Title */}
@@ -128,8 +128,9 @@ export default function Hero() {
             </a>
 
             <a
-              href="/Ravikiran_MS_Resume.pdf"
-              download
+              href="https://drive.google.com/uc?export=download&id=1vUZAGL-vXeMigcvgU7eR1TCOmEIQf0g6"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-medium text-white border border-cyber-violet/50 bg-cyber-violet/10 hover:bg-cyber-violet/25 hover:border-cyber-violet transition-all duration-300 flex items-center justify-center gap-2"
             >
               <Download size={18} />
