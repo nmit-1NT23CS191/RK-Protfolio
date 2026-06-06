@@ -104,7 +104,18 @@ const certificates = [
     glowColor: 'rgba(234,179,8,0.28)',
     
     certificateUrl:'https://drive.google.com/file/d/1DiDtZNvHW-WPjeVj_0_YBViHE_52NYN-/view?usp=drive_link'
-  }
+  },
+  {
+    id: 9, 
+    title: 'Google Cloud Engineering Certificate',
+    issuer: 'Google Cloud',
+    date: 'Apr 2026', 
+    type: 'Professional Certification',
+    verified: true,
+    badge: '☁️',
+    glowColor: 'rgba(66, 133, 244, 0.30)', 
+    certificateUrl: 'https://drive.google.com/file/d/1s41B0eRkX52tAlEcZnVnlm-dtUUj64xR/view?usp=sharing', 
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════
